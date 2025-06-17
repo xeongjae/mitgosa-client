@@ -1,0 +1,52 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1040px;
+  height: 40px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  font-family: "Noto Sans KR", "Pretendard", sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  color: #ffffff;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.1s ease;
+
+  &:hover {
+    border-bottom: 4px solid #ffffff;
+  }
+}
+
+.header-right {
+  display: flex;
+  gap: 20px;
+  width: 200px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #b3cdff;
+}
+
+.header-right-item {
+  height: 40px;
+  background: none;
+  border: none;
+  color: #b3cdff;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: inherit;
+  border-radius: 0;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.1s ease;
+
+  &:hover {
+    color: #ffffff;
+    border-bottom: 4px solid #ffffff;
+  }
+}

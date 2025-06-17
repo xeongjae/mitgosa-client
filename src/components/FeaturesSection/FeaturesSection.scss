@@ -1,0 +1,177 @@
+.features-section {
+  padding-top: 4px;
+}
+
+.features {
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.feature-item1 {
+  width: 49.8%;
+  height: 550px;
+  background-color: #31313c;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.feature-item1-title {
+  width: 100%;
+  height: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  padding: 14px 0 16px 12px;
+  border-bottom: 1px solid #1c1c1f;
+}
+
+.feature-item1-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 500px;
+  padding: 0;
+  list-style: none;
+}
+
+.feature-item1-content-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 20%;
+  font-weight: 700;
+  color: #ffffff;
+  padding-left: 16px;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+
+  &.border {
+    border-bottom: 1px solid #1c1c1f;
+  }
+
+  &:hover {
+    background-color: #282830;
+  }
+
+  .shop-icon {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+  }
+
+  p {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+
+    .platform-name {
+      width: fit-content;
+      font-size: 14px;
+      font-weight: 700;
+      transition: color 0.1s ease, text-decoration 0.1s ease;
+      cursor: pointer;
+
+      &:hover {
+        color: #4270d3;
+        text-decoration: underline;
+        text-decoration-color: #4270d3;
+      }
+    }
+
+    .shop-description {
+      font-size: 12px;
+      font-weight: 400;
+      color: #9e9eb1;
+      line-height: 1.3;
+    }
+  }
+}
+.tool-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 49.8%;
+  background-color: #31313c;
+  border-radius: 4px;
+  color: #7b7a8e;
+  font-family: "Inter", sans-serif;
+  h3 {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 0;
+    margin-top: 20px;
+  }
+
+  .api-subtitle {
+    color: #9e9eb1;
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+
+  // 호버 시 이미지 회전 효과
+  &:hover .tool-image {
+    animation: spin 4s linear infinite;
+  }
+}
+
+// 회전 애니메이션 정의
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.tool-image {
+  margin-top: 120px;
+  width: 80px;
+  height: 80px;
+  // 부드러운 전환을 위한 기본 설정
+  transition: transform 0.3s ease;
+}
+
+.api-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .api-link {
+    padding: 8px 16px;
+    background-color: transparent;
+    color: #4270d3;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid #4270d3;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #5383e8;
+      color: #fff;
+    }
+  }
+}

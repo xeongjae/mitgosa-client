@@ -1,0 +1,135 @@
+body {
+  /* 
+    1. Pretendard: 기본 한글 및 영문 폰트 (OP.GG 주요 본문 폰트)
+    2. Inter: 영문 텍스트 및 숫자 강조 시 사용 가능
+    3. Roboto: 보조 UI 요소 및 영문 텍스트에 사용 가능
+    4. Noto Sans KR: 한글 지원 및 시스템 폴백
+    그 외 시스템 기본 산세리프 폰트들 
+  */
+  font-family: "Pretendard", "Inter", "Roboto", "Noto Sans KR", -apple-system,
+    BlinkMacSystemFont, system-ui, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  background-color: #1c1c1f; /* 전체 배경색 설정 */
+  color: #ffffff; /* 기본 글자색 설정 */
+}
+
+/* 
+  예시: 특정 클래스에 Inter 폰트 적용 (영문/숫자용)
+  .numeric-text {
+    font-family: 'Inter', 'Pretendard', sans-serif; 
+  }
+
+  예시: 특정 UI 요소에 Roboto 폰트 적용
+  .button-text {
+    font-family: 'Roboto', 'Pretendard', sans-serif;
+  }
+*/
+
+/* OP.GG 스타일 폰트 클래스들 */
+
+/* Inter 폰트 - 영문 텍스트와 숫자용 */
+.font-inter {
+  font-family: "Inter", "Pretendard", sans-serif;
+}
+
+.numeric-text {
+  font-family: "Inter", "Pretendard", sans-serif;
+  font-weight: 500;
+}
+
+.stats-number {
+  font-family: "Inter", "Pretendard", sans-serif;
+  font-weight: 700;
+}
+
+/* Roboto 폰트 - UI 요소용 */
+.font-roboto {
+  font-family: "Roboto", "Pretendard", sans-serif;
+}
+
+.button-text {
+  font-family: "Roboto", "Pretendard", sans-serif;
+  font-weight: 500;
+}
+
+.nav-text {
+  font-family: "Roboto", "Pretendard", sans-serif;
+  font-weight: 400;
+}
+
+/* Pretendard 폰트 - 본문 및 제목용 (기본값이지만 명시적 사용시) */
+.font-pretendard {
+  font-family: "Pretendard", sans-serif;
+}
+
+.title-text {
+  font-family: "Pretendard", sans-serif;
+  font-weight: 700;
+}
+
+.body-text {
+  font-family: "Pretendard", sans-serif;
+  font-weight: 400;
+}
+
+/* Noto Sans KR - 한글 전용 텍스트용 */
+.font-noto {
+  font-family: "Noto Sans KR", "Pretendard", sans-serif;
+}
+
+/* Syncopate 폰트 - 강인하고 모던한 디스플레이 폰트용 */
+.font-syncopate {
+  font-family: "Syncopate", "Noto Sans KR", sans-serif;
+}
+
+.logo-text {
+  font-family: "Syncopate", "Noto Sans KR", sans-serif;
+  font-weight: 700;
+}
+
+.brand-text {
+  font-family: "Syncopate", "Noto Sans KR", sans-serif;
+  font-weight: 400;
+}
+
+.display-heading {
+  font-family: "Syncopate", "Noto Sans KR", sans-serif;
+  font-weight: 700;
+}
+
+/* 추가적인 전역 스타일을 여기에 정의할 수 있습니다. */
+
+/* 레이아웃 시프트 방지를 위한 전역 스타일 */
+* {
+  box-sizing: border-box;
+}
+
+/* 부드러운 전환을 위한 전역 설정 */
+.layout-stable {
+  transition: all 0.3s ease;
+}
+
+/* 메시지나 상태 변경 시 레이아웃이 깨지지 않도록 하는 유틸리티 클래스들 */
+.fixed-height-container {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-area {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+.content-area {
+  min-height: 200px; /* 콘텐츠 영역의 최소 높이 보장 */
+}
