@@ -1,4 +1,4 @@
-# 🛍️ MITGOSA - AI 리뷰 요약 서비스
+# MITGOSA - AI 리뷰 요약 서비스
 
 ![mitgosa-high-resolution-logo-transparent](https://github.com/user-attachments/assets/e0a2948c-d698-422f-b44c-c040d7c570b6)
 
