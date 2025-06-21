@@ -37,6 +37,8 @@
 
 ## ⚙️ 아키텍처
 
+![아키텍처](public/architecture.png)
+
 `Client (React)` ↔ `Server (Express)` ↔ `Crawling/AI (Puppeteer, Gemini)`
 
 1.  **Client:** 사용자가 상품 URL을 입력하면, 이를 서버로 전송합니다.
