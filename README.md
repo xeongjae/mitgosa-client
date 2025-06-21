@@ -39,8 +39,6 @@
 
 ![아키텍처](public/architecture.png)
 
-`Client (React)` ↔ `Server (Express)` ↔ `Crawling/AI (Puppeteer, Gemini)`
-
 1.  **Client:** 사용자가 상품 URL을 입력하면, 이를 서버로 전송합니다.
 2.  **Server:** 전달받은 URL을 `Puppeteer`를 이용해 크롤링하여 리뷰 데이터를 수집합니다.
 3.  **Server:** 수집된 리뷰 데이터를 `Google Gemini API`로 보내 분석을 요청합니다.
