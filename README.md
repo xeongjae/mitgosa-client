@@ -47,46 +47,6 @@
 
 <br>
 
-## 📖 시작 가이드
-
-### 1. 프로젝트 클론
-
-```bash
-git clone https://github.com/your-username/MITGOSA.git
-cd MITGOSA
-```
-
-### 2. 환경 변수 설정
-
-`reviewscan-server` 디렉토리에 `.env` 파일을 생성하고 아래 내용을 채워주세요.
-
-```env
-# reviewscan-server/.env
-# 프론트엔드 주소
-CORS_ORIGIN=http://localhost:5173
-
-# Google Gemini API Key
-GEMINI_API_KEY=your_gemini_api_key
-```
-
-### 3. 서버 실행
-
-```bash
-cd reviewscan-server
-npm install
-npm start
-```
-
-### 4. 클라이언트 실행
-
-```bash
-cd reviewscan
-npm install
-npm run dev
-```
-
-<br>
-
 ## 💡 프로젝트를 통해 얻은 경험
 
 - **비동기 처리와 에러 핸들링:** 크롤링과 외부 API 통신 과정에서 발생하는 다양한 비동기 작업을 효과적으로 제어하고, 예외 상황에 대한 안정적인 에러 처리 로직을 구축하며 Node.js의 비동기 처리 모델에 대한 깊은 이해를 얻을 수 있었습니다.
