@@ -1,13 +1,16 @@
 # MITGOSA - AI 리뷰 요약 서비스
 <p align="center">
-<img src="public/믿고사로고.png" alt="로고" width="600"/>
+<img src="public/믿고사로고.png" alt="로고" width="400"/>
 </p>
 
 <p align="center">
   <strong>
-**MITGOSA는 수많은 리뷰를 보고 고민하며 많은 시간을 보내는 사람들을 위해, <br>원하는 상품의 전체 리뷰를 AI가 분석하여 한눈에 요약해주는 서비스입니다.**
-</strong>
+  MITGOSA는 수많은 리뷰를 보고 고민하며 많은 시간을 보내는 사람들을 위해, <br>원하는 상품의 전체 리뷰를 AI가 분석하여 한눈에 요약해주는 서비스입니다.
+  </strong>
 <br>
+<a href="https://github.com/cafe-snap/cafesnap-client">
+    방문하기
+</a>
 
 ## 💭 프로젝트 동기
 
