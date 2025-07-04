@@ -1,4 +1,5 @@
 # MITGOSA - AI 리뷰 요약 서비스
+
 <p align="center">
 <img src="public/믿고사로고.png" alt="로고" width="500"/>
 </p>
@@ -49,9 +50,7 @@
 
 저의 필요에서 비롯된 아이디어이기에 더 큰 애정을 가지고 개발에 임했으며, 그 속에 **기술적 도전을** 하나하나 달성하며 흥미를 느낄 수 있었습니다.
 
-
 <br>
-
 
 ## ⚙️ 주요 기능 및 아키텍처
 
@@ -76,7 +75,7 @@
 | **Frontend**      | <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black"> <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white"> <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white"> <img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white"> |
 | **Backend**       | <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"> <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white">                                                                                                                                                                                               |
 | **Crawling & AI** | <img src="https://img.shields.io/badge/Puppeteer-40B5A4?style=for-the-badge&logo=Puppeteer&logoColor=white"> <img src="https://img.shields.io/badge/Google_Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white">                                                                                                                                                                                      |
-| **Deployment**    | (배포 예정 플랫폼)                                                                                                                                                                                                                                                                                                                                                                                              |
+| **Deployment**    | <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"> <img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white">                                                                                                                                                                                                   |
 
 <br>
 
