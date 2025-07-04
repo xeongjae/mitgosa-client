@@ -87,4 +87,3 @@
 
 ---
 
-MIT License © 2024, [Your Name]
