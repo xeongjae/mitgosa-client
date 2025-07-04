@@ -12,6 +12,35 @@
     방문하기
 </a>
 
+## 🗂 목차
+
+<!-- toc -->
+
+- [💭 프로젝트 동기](#%F0%9F%92%AD-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%8F%99%EA%B8%B0)
+- [🛠 사용 기술](#%F0%9F%9B%A0-%EC%82%AC%EC%9A%A9-%EA%B8%B0%EC%88%A0)
+    + [프론트엔드](#%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C)
+    + [백엔드](#%EB%B0%B1%EC%97%94%EB%93%9C)
+- [🎞 구현 기능 미리보기](#%F0%9F%8E%9E-%EA%B5%AC%ED%98%84-%EA%B8%B0%EB%8A%A5-%EB%AF%B8%EB%A6%AC%EB%B3%B4%EA%B8%B0)
+- [📝 구현 세부사항](#%F0%9F%93%9D-%EA%B5%AC%ED%98%84-%EC%84%B8%EB%B6%80%EC%82%AC%ED%95%AD)
+  * [크롤링을 사용한 필수 데이터 확보](#%ED%81%AC%EB%A1%A4%EB%A7%81%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%9C-%ED%95%84%EC%88%98-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%99%95%EB%B3%B4)
+    + [1. 네이버 API의 제한사항 : Puppeteer를 사용한 해결](#1-%EB%84%A4%EC%9D%B4%EB%B2%84-api%EC%9D%98-%EC%A0%9C%ED%95%9C%EC%82%AC%ED%95%AD--puppeteer%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%9C-%ED%95%B4%EA%B2%B0)
+    + [2. 동영상 데이터를 크롤링하는 방법](#2-%EB%8F%99%EC%98%81%EC%83%81-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%ED%81%AC%EB%A1%A4%EB%A7%81%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95)
+  * [Zustand를 사용한 API 요청 과 응답 데이터의 관리](#zustand%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%9C-api-%EC%9A%94%EC%B2%AD-%EA%B3%BC-%EC%9D%91%EB%8B%B5-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EA%B4%80%EB%A6%AC)
+    + [1. 길어지는 메인페이지의 코드 : 컴포넌트의 관심사 분리](#1-%EA%B8%B8%EC%96%B4%EC%A7%80%EB%8A%94-%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80%EC%9D%98-%EC%BD%94%EB%93%9C--%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%9D%98-%EA%B4%80%EC%8B%AC%EC%82%AC-%EB%B6%84%EB%A6%AC)
+    + [2. 전역 상태관리를 통한 에러처리 : 자동화 및 사용자 상호작용](#2-%EC%A0%84%EC%97%AD-%EC%83%81%ED%83%9C%EA%B4%80%EB%A6%AC%EB%A5%BC-%ED%86%B5%ED%95%9C-%EC%97%90%EB%9F%AC%EC%B2%98%EB%A6%AC--%EC%9E%90%EB%8F%99%ED%99%94-%EB%B0%8F-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%83%81%ED%98%B8%EC%9E%91%EC%9A%A9)
+  * [검색에 사용되는 영어 ➡ 한글 자동 변환 기능 만들기](#%EA%B2%80%EC%83%89%EC%97%90-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%EC%98%81%EC%96%B4-%E2%9E%A1-%ED%95%9C%EA%B8%80-%EC%9E%90%EB%8F%99-%EB%B3%80%ED%99%98-%EA%B8%B0%EB%8A%A5-%EB%A7%8C%EB%93%A4%EA%B8%B0)
+    + [1. 변환을 위한 한글 파고 들기 : 초성, 중성, 종성](#1-%EB%B3%80%ED%99%98%EC%9D%84-%EC%9C%84%ED%95%9C-%ED%95%9C%EA%B8%80-%ED%8C%8C%EA%B3%A0-%EB%93%A4%EA%B8%B0--%EC%B4%88%EC%84%B1-%EC%A4%91%EC%84%B1-%EC%A2%85%EC%84%B1)
+    + [2. 패턴을 활용한 변환 알고리즘 구현](#2-%ED%8C%A8%ED%84%B4%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EB%B3%80%ED%99%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B5%AC%ED%98%84)
+  * [프로그레스바를 활용한 직관적 애니메이션 구현](#%ED%94%84%EB%A1%9C%EA%B7%B8%EB%A0%88%EC%8A%A4%EB%B0%94%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%A7%81%EA%B4%80%EC%A0%81-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98-%EA%B5%AC%ED%98%84)
+    + [1. 초기 UI 구성 : 동영상의 총 개수 활용](#1-%EC%B4%88%EA%B8%B0-ui-%EA%B5%AC%EC%84%B1--%EB%8F%99%EC%98%81%EC%83%81%EC%9D%98-%EC%B4%9D-%EA%B0%9C%EC%88%98-%ED%99%9C%EC%9A%A9)
+    + [2. 진행률 표현 : 차오르는 애니메이션 구현](#2-%EC%A7%84%ED%96%89%EB%A5%A0-%ED%91%9C%ED%98%84--%EC%B0%A8%EC%98%A4%EB%A5%B4%EB%8A%94-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98-%EA%B5%AC%ED%98%84)
+- [프로젝트 후기](#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9B%84%EA%B8%B0)
+
+<!-- tocstop -->
+
+<br />
+
+
 ## 💭 프로젝트 동기
 
 이 프로젝트는 **인터넷 쇼핑을 좀 더 빠르고 편리하게** 돕고자 하는 생각에서 출발하였습니다.
