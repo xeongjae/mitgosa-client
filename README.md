@@ -5,7 +5,7 @@
 
 <p align="center">
   <strong>
-  MITGOSA는 수많은 리뷰를 보고 고민하며 많은 시간을 보내는 사람들을 위해, <br>원하는 상품의 전체 리뷰를 AI가 분석하여 한눈에 요약해주는 서비스입니다.
+  MITGOSA는 수많은 리뷰를 보며 많은 시간을 보내는 사람들을 위해, <br>원하는 상품의 전체 리뷰를 AI가 분석하여 한눈에 요약해주는 서비스입니다.
   </strong>
 <br>
 <a href="https://github.com/cafe-snap/cafesnap-client">
