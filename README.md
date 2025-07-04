@@ -1,5 +1,7 @@
 # MITGOSA - AI 리뷰 요약 서비스
 
+<br />
+
 <p align="center">
 <img src="public/믿고사로고.png" alt="로고" width="500"/>
 </p>
