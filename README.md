@@ -62,10 +62,10 @@
   <table>
     <tr>
       <td width="50%">
-        <img width="100%" src="https://github.com/user-attachments/assets/25d58745-9e06-4dc2-9ee1-1f8b4fb0063d" />
+        <img width="100%" src="public/ui-gif.gif" />
       </td>
       <td width="50%">
-        <img width="100%" src="https://github.com/user-attachments/assets/ab4401fb-c310-4510-871d-6e2af3e05642" />
+        <img width="100%" src="public/user-gif.gif" />
       </td>
     </tr>
     <tr align="center">
