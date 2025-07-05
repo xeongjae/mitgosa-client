@@ -13,7 +13,7 @@
   </strong>
 <br>
 <a href="https://mitgosa.vercel.app">
-    🔗 [https://mitgosa.vercel.app]
+    🔗 [https://mitgosa.vercel.app] 방문하기
 </a>
 
 <br />
