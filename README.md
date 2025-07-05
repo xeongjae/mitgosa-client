@@ -57,24 +57,24 @@
 <br />
 <br />
 
-# 👀 미리보기 및 아키텍처
-
-<table>
-  <tr>
-    <td width="50%">
-      <img width="100%" src="https://github.com/user-attachments/assets/25d58745-9e06-4dc2-9ee1-1f8b4fb0063d" />
-    </td>
-    <td width="50%">
-      <img width="100%" src="https://github.com/user-attachments/assets/ab4401fb-c310-4510-871d-6e2af3e05642" />
-    </td>
-  </tr>
-  <tr align="center">
-    <td>카페별 동영상 시청</td>
-    <td>동영상 검색 기능</td>
-  </tr>
-</table>
-
-<img src="public/architecture.png" alt="아키텍처" width="1000"/>
+  # 👀 미리보기 및 아키텍처
+  
+  <table>
+    <tr>
+      <td width="50%">
+        <img width="100%" src="https://github.com/user-attachments/assets/25d58745-9e06-4dc2-9ee1-1f8b4fb0063d" />
+      </td>
+      <td width="50%">
+        <img width="100%" src="https://github.com/user-attachments/assets/ab4401fb-c310-4510-871d-6e2af3e05642" />
+      </td>
+    </tr>
+    <tr align="center">
+      <td>메인 페이지 UI</td>
+      <td>리뷰 분석 화면</td>
+    </tr>
+  </table>
+  
+  <img src="public/architecture.png" alt="아키텍처" width="1000"/>
 
 <br />
 
@@ -228,10 +228,10 @@ iframe은 부모 페이지와 독립적인 DOM 트리를 형성합니다. 다시
   <div align="center">전역 상태 도입 전후 메인페이지 길이 비교</div>
   <tr>
     <td width="50%">
-      <img  src="https://github.com/user-attachments/assets/3e394c80-68af-4958-9871-81a29bc4ce8b" />
+      <img  src="public/ui-gif.gif" />
     </td>
     <td width="50%">
-      <img  src="https://github.com/user-attachments/assets/4ae9298b-afde-46ef-a5cf-55a28185bcb2" />
+      <img  src="public/user-gif.gif" />
     </td>
   </tr>
   <tr align="center">
