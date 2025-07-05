@@ -77,7 +77,6 @@
 <img src="public/architecture.png" alt="아키텍처" width="1000"/>
 
 <br />
-<br />
 
 1.  **상품페이지 URL 수집:** 사용자가 상품 URL을 입력하면, 이를 서버로 전송합니다.
 2.  **웹 크롤링:** 전달받은 URL을 `Puppeteer`를 이용해 크롤링하여 쇼핑몰의 리뷰 데이터를 수집합니다.
