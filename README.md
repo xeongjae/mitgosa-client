@@ -69,8 +69,8 @@
       </td>
     </tr>
     <tr align="center">
-      <td>메인 페이지 UI</td>
-      <td>리뷰 분석 화면</td>
+      <td>UI / UX</td>
+      <td>리뷰 분석</td>
     </tr>
   </table>
   
