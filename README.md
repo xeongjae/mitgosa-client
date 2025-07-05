@@ -60,6 +60,10 @@
   # 👀 미리보기 및 아키텍처
   
   <table>
+    <tr align="center">
+      <td>리뷰 분석</td>
+      <td>UI / UX</td>
+    </tr>
     <tr>
        <td width="50%">
         <img width="100%" src="public/user-gif.gif" />
@@ -67,10 +71,6 @@
       <td width="50%">
         <img width="100%" src="public/ui-gif.gif" />
       </td>
-    </tr>
-    <tr align="center">
-      <td>리뷰 분석</td>
-      <td>UI / UX</td>
     </tr>
   </table>
   
