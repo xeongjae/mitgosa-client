@@ -61,16 +61,16 @@
   
   <table>
     <tr>
+       <td width="50%">
+        <img width="100%" src="public/user-gif.gif" />
+      </td>
       <td width="50%">
         <img width="100%" src="public/ui-gif.gif" />
       </td>
-      <td width="50%">
-        <img width="100%" src="public/user-gif.gif" />
-      </td>
     </tr>
     <tr align="center">
-      <td>UI / UX</td>
       <td>리뷰 분석</td>
+      <td>UI / UX</td>
     </tr>
   </table>
   
