@@ -60,8 +60,6 @@
 
 # 🏛️ 아키텍처
 
-<br />
-
 <img src="public/architecture.png" alt="아키텍처" width="1000"/>
 
 1.  **상품페이지 URL 수집:** 사용자가 상품 URL을 입력하면, 이를 서버로 전송합니다.
