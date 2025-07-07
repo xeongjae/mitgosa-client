@@ -1,4 +1,4 @@
-# MITGOSA - AI 리뷰 요약 서비스
+# MITGOSA(믿고사) - AI 리뷰 요약 서비스
 
 <br />
 <br />
