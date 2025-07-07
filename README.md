@@ -140,7 +140,7 @@ API와 크롤링의 특징을 비교할 때 가장 흔하게 마주할 수 있�
 
 <details>
   <summary>실험 결과 일부</summary>
-  <img width="100%" src="https://github.com/user-attachments/assets/45ddc943-0b44-4cec-b0d0-18e4544462ba" />
+  <img width="100%" src="public/review-test.png" />
 </details>
 </br>
 
