@@ -48,10 +48,8 @@
 
 | 구분              | 기술                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Frontend**      | <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black"> <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white"> <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white"> <img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white"> |
-| **Backend**       | <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"> <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white">                                                                                                                                                                                               |
-| **Crawling & AI** | <img src="https://img.shields.io/badge/Puppeteer-40B5A4?style=for-the-badge&logo=Puppeteer&logoColor=white"> <img src="https://img.shields.io/badge/Google_Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white">                                                                                                                                                                                      |
-| **Deployment**    | <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"> <img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white">                                                                                                                                                                                                   |
+| **Frontend**      | <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black"> <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white"> <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white"> <img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white"> <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"> |
+| **Backend**       | <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"> <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white"> <img src="https://img.shields.io/badge/Puppeteer-40B5A4?style=for-the-badge&logo=Puppeteer&logoColor=white"> <img src="https://img.shields.io/badge/Google_Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white"> <img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white">                                                                                                                                                                                                |
 
 <br />
 <br />
@@ -96,7 +94,7 @@
 
 # 🔥 주요 경험
 
-## 1. 크롤링을 사용한 필수 데이터 확보
+## [주요경험] 1. 크롤링을 사용한 필수 데이터 확보
 
 > 크롤링(Crawling) = 웹 페이지의 데이터를 자동으로 가져오는 기술
 
@@ -105,7 +103,7 @@
 
 ---
 
-### 1-1. 크롤링 사용 이유 : 오픈 API의 부재
+#### 1-1. 크롤링 사용 이유 : 오픈 API의 부재
 
 웹 페이지 데이터를 활용하는 프로젝트 특성상 오픈 API 사용을 최우선으로 고려했습니다.<br />
 그러나 무신사, 에이블리 등의 쇼핑몰 사이트는 오픈 API를 제공하지 않아 크롤링 도입이 필요하다고 판단했습니다.
@@ -117,7 +115,7 @@
 
 ---
 
-### 1-2. 가상 스크롤 크롤링 문제 : Puppeteer의 기능을 활용한 단계적 스크롤 로직 구현
+#### 1-2. 가상 스크롤 크롤링 문제 : Puppeteer의 기능을 활용한 단계적 스크롤 로직 구현
 
 초기에 크롤링 로직으로 리뷰를 수집한 결과, 10-20개 정도 소수의 리뷰만 수집되는 문제가 발생했습니다. <br />
 개발자 도구를 분석한 결과, 초기에 예상했던 무한스크롤 방식이 아닌 **가상 스크롤(Virtual Scroll) 방식**으로 리뷰를 렌더링하고 있었습니다.
@@ -143,67 +141,39 @@
 
 ---
 
-### 1-3. 상품의 기본 정보 크롤링
+#### 1-3. 상품의 기본 정보 크롤링
 
-리뷰 데이터 수집 이전에 상품 페이지에서 정보 데이터를 확보해야 했습니다.
-<br />페이지의 DOM 구조를 분석한 결과, 각 상품 정보는 고유한 CSS Selector를 가지고 있었습니다.
+리뷰 데이터 수집에 앞서 상품 페이지에서 기본 정보를 수집하는 과정이 필요했습니다.
+<br />페이지의 DOM 구조를 분석한 결과, 각 상품 정보 요소들이 고유한 CSS Selector를 가지고 있음을 확인했습니다.
 
-<img width="70%" src="https://github.com/user-attachments/assets/6ef2d471-097b-4d8f-b9ec-066faef714bc" />
-((((((<strong> 2-1. 게시글의 동영상 포함 여부 확인 </strong>
+<img width="70%" src="public/sel.png" />
 
-동영상을 얻기 위해서는 게시글에 동영상이 포함되어 있는지 확인하는 것이 첫 번째 단계라 생각했습니다. 이때, 모든 게시글 내부에 접근하여 포함 여부를 판단하는 것은 비효율적이라 판단했고, 내부에 접근하지 않고 동영상의 포함 여부를 확인하는 방법을 찾았습니다.
+위 이미지의 빨간색으로 표시된 부분은 상품명이 담긴 `span` 태그의 class 속성을 보여줍니다. 이와 같은 고유 선택자를 활용하여 상품명, 브랜드, 가격, 대표 이미지 총 4개의 핵심 정보를 안정적으로 수집할 수 있었습니다.
 
-<img width="70%" src="https://github.com/user-attachments/assets/6ef2d471-097b-4d8f-b9ec-066faef714bc" />
-</br>
+```javascript
+const productInfo = await page.evaluate((url) => {
+      // 상품명
+      const name =
+        document.querySelector(
+            ".text-title_18px_med.sc-1omefes-1.exqQRL.font-pretendard"
+          )
+          ?.textContent?.trim() || "";
+      // 브랜드
+      const brand =
+        document.querySelector(
+            '.sc-12cqkwk-2.hgzZM .text-body_14px_med.font-pretendard[data-mds="Typography"]'
+          )
+          ?.textContent?.trim() || "";
+      // ...나머지
+  return { name, brand, price, image };
+});
+```
 
-해당 사진은 특정 카페의 전체 게시글 목록을 캡쳐한 사진입니다. 빨간색 동그라미 친 부분의 아이콘은 해당 게시글에 동영상이 포함되어 있음을 알려주는 아이콘입니다. 이 아이콘을 통해서 직접 게시글 내부에 접근하지 않아도 동영상의 포함 여부를 판단할 수 있게 되고, 해당 아이콘의 DOM 요소인 `span` 태그의 class 속성 `list-i-movie` 를 사용하여 전체 게시글 페이지만을 이동하며 동영상 포함 여부를 판단할 수 있었습니다.
+<br/>
+<br/>
+<br/>
 
----
-
-<strong> 2-2. 예상하지 못한 크롤링 결과 데이터 </strong>
-
-게시글 내부에 접근하지 않고, 동영상의 포함 여부를 확인하는 방법을 찾은 이후 크롤링 로직을 구현하여 결과를 확인했지만 예상하지 못한 결과를 확인했습니다.  
-분명히 로그인을 완료하고, 컨텐츠의 로딩을 기다린 후 `page.content()` 메서드를 사용하여 본문 크롤링을 시도했지만, 기대했던 결과와 전혀 다른 결과가 반환됐습니다. 이유는 네이버 카페 게시글 페이지의 `iframe DOM` 구조 때문이었습니다.  
-iframe은 부모 페이지와 독립적인 DOM 트리를 형성합니다. 다시 한번 개발자 도구를 확인하여 크롤링하고자 했던 DOM의 최상위 요소를 확인해 보니 iframe 태그로 감싸져 있는 걸 확인 할 수 있었습니다.
-
-<img width="70%"  src="https://github.com/user-attachments/assets/542a9162-f2c5-4e86-aa60-189a9ca8f302" />
-
-</br>
-
-이를 해결 하기 위해 iframe 요소를 선택한 후, `contentFrame()` 메서드를 사용해 iframe 내부 `DOM 컨텍스트`를 확보하여 원하는 크롤링 데이터를 얻을 수 있게 되었습니다.)))))
-
----
-
-<strong> 2-3. 게시글로부터 동영상 데이터 확보 </strong>
-
-동영상이 포함된 게시글 주소를 확보한 이후, 동영상 데이터를 가져오기 위한 로직을 구현하기 시작했습니다.  
-이를 위해 게시글 내부 video 태그의 `src` 속성을 확인했습니다.
-
-<img width="70%"  src="https://github.com/user-attachments/assets/4234e6fb-da05-4114-b52b-aa77987d3b42" />
-
-</br>
-
-당연하게 존재할 것이라 생각한 video 태그의 src 속성은 존재하지 않았습니다. 해당 속성은 게시글 접근 초기에는 존재하지 않다가 동영상의 재생버튼을 클릭한 이후, 동적으로 생성되었습니다.
-
-<img width="70%" src="https://github.com/user-attachments/assets/cb6827bd-c2e7-4dbb-822d-fa578d94df6c" />
-
-</br>
-
-이러한 구조라면 게시글에 접근하여 재생 버튼을 클릭한 다음, 다시 DOM 요소를 불러와야 하는 흐름이었고, 이 한 단계의 추가적인 행동이 동영상이 포함된 모든 게시글마다 실행된다면 크롤링 속도 저하에 영향을 끼친다고 판단했습니다.
-
-해결하기 위한 방법을 찾던 중, 동영상 재생 시 스트리밍되는 데이터와 별개로 네트워크 요청에서 초기 데이터를 받아오는 경우가 있다는 정보를 얻었습니다. 실제로 네트워크 요청 탭을 확인해 보니, 수많은 요청 주소 중 해당 게시글의 동영상 데이터를 갖는 응답을 확인할 수 있었습니다.
-
-<img width="70%" src="https://github.com/user-attachments/assets/2a775417-f6f9-4350-a490-173c3568b492" />
-
-</br>
-
-게시글 접속 시 발생하는 수많은 네트워크 요청 가운데, 동영상 데이터를 갖는 응답은 다른 요청들과는 다르게 유일한 주소 패턴을 갖고 있었습니다.
-
-이러한 특징 덕분에 모든 네트워크 요청을 일일이 확인할 필요 없이 조건문 하나로 빠르게 필요한 네트워크 요청을 확인 할 수 있었고, 동영상 데이터를 가져올 수 있게 되었습니다.
-
----
-
-## Gemini API를 사용한 리뷰 데이터 분석과 응답 데이터 관리
+## [주요경험] 2. Gemini API 프롬프트를 설계와 응답 데이터 관리
 
 이 프로젝트에서는 필요한 데이터의 종류에 따라 서로 다른 API 요청을 서버에 전송합니다. 초기 개발 시에는 대부분의 기능을 메인페이지에서 구성하고, 몇 가지 모달을 사용한 UI를 구성했기에 전역 상태 관리를 사용하지 않은 로직을 작성했습니다. 그러나 프로젝트를 진행함에 따라 전역 상태 관리의 필요성을 느끼기 시작했습니다.
 
@@ -243,34 +213,6 @@ Zustand 전역 상태 관리 라이브러리를 도입한 후 개선된 사항�
    이를 통하여 요청 자동화의 트리거가 되는 상태 값의 통일성과 신뢰성을 확보했습니다.
 1. 전역 상태를 트리거로 한 API 요청의 자동화  
    다양한 시점에 필요한 API 요청의 자동화를 통하여, 사용자에게 별도의 동작을 요구하지 않고, 필요한 데이터를 반환받을 수 있게 되었습니다.
-
----
-
-### 2. 전역 상태관리를 통한 에러처리 : 자동화 및 사용자 상호작용
-
-전역 상태 관리를 사용한 이점에는 에러처리 방식도 포함이 됩니다. 해당 프로젝트에서 발생하는 대부분의 오류는 서버에서 올바른 크롤링 데이터를 반환받지 못할 때 발생합니다. 초기에는 서버단에서 발생하는 에러에 대하여 별다른 에러처리 방식이 없었습니다. 이러한 에러에 대하여 사용자에게 더욱더 나은 경험을 제공하기 위한 방법을 고민하였고, 다음과 같은 방식으로 에러처리 로직을 구현했습니다.
-
----
-
-<strong> 2-1. 에러처리 방식 : 재요청 자동화 </strong>
-
-사용자는 동영상을 시청 중이거나, 원하는 동영상을 검색하는 등 이미 프로젝트의 화면을 사용하고 있습니다. 이러한 상황에서 매번 에러가 발생할 때마다 명시적인 알람을 표시하는 처리 방식은 프로젝트와 적합하지 않다고 판단했습니다.  
-이러한 프로젝트의 특수성에 알맞게 최대 2회의 에러에 대하여 자동으로 재요청 로직을 구성했습니다. 2회라는 기준은 일시적인 네트워크 장애 및 서버 응답 지연에 따라 발생할 수 있는 에러를 대비한 숫자입니다. 이러한 에러에 대하여 재요청을 통해 올바른 데이터를 확보할 수 있도록 구현했습니다.
-
----
-
-<strong> 2-2. 에러처리 방식 : 선택권 부여 </strong>
-
-2회의 자동 재요청 이후에도 발생하는 에러에 대하여 사용자에게 선택권을 제공했습니다. 발생하는 에러에 대하여 그 회수를 상태 값으로 카운트합니다. 3회 이상 발생 시, 에러에 대한 문구 및 버튼을 표시하는 모달을 제공하여 사용자로 하여금 재요청을 보낼지 해당 데이터 요청을 무시할지 선택할 수 있게 권한을 부여합니다.
-
-이러한 에러처리 방식을 통하여 프로젝트 특성에 알맞게, 너무 잦은 UI 적 표현을 최소화하면서도 사용자 상호작용을 고려한 방식을 구현했습니다.
-
----
-
-## 프로그레스바를 활용한 직관적 애니메이션 구현
-
-초기 개발 단계에서는 동영상과 관련된 애니메이션이 없이 단순히 동영상만을 출력시켜 주는 UI 였습니다. 초기 목업 데이터를 통한 동영상 재생 시에는 불편함을 느끼지 못했지만, 실제 데이터를 통해 여러 카페의 여러 동영상을 다루다 보니 큰 불편함이 존재했습니다.  
-카페별로 반환되는 동영상의 개수는 모두 다릅니다. 또, 영상을 시청하는 도중 새로운 동영상 데이터가 실시간으로 재생목록에 추가됩니다. 이때, "동영상이 총 몇 개인지?" , "현재 진 중인 동영상의 길이는 얼마나 긴지?" 와 관련된 정보를 직관적으로 보여준다면 사용하기 훨씬 편리해질 것 같다는 생각에 애니메이션을 구현하기 시작했습니다.
 
 ---
 
