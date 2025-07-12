@@ -148,34 +148,15 @@
 
 <img width="70%" src="public/sel.png" />
 
-위 이미지의 빨간색으로 표시된 부분은 상품명이 담긴 `span` 태그의 class 속성을 보여줍니다. 이와 같은 고유 선택자를 활용하여 상품명, 브랜드, 가격, 대표 이미지 총 4개의 핵심 정보를 안정적으로 수집할 수 있었습니다.
+위 이미지의 빨간색으로 표시된 부분은 상품명이 담긴 `span` 태그의 class 속성을 보여줍니다.
+<br />이와 같은 고유 선택자를 활용하여 상품명, 브랜드, 가격, 대표 이미지 총 4개의 핵심 정보를 안정적으로 수집할 수 있었습니다.
 
 <details>
 <summary>[ 코드 ]</summary>
 
-<img width="70%" src="public/cre.png" alt="리뷰 데이터 수집 정확도 테스트" />
+<img width="70%" src="public/crw-code.png" alt="리뷰 데이터 수집 정확도 테스트" />
 
 </details>
-
-
-```javascript
-const productInfo = await page.evaluate((url) => {
-      // 상품명
-      const name =
-        document.querySelector(
-            ".text-title_18px_med.sc-1omefes-1.exqQRL.font-pretendard"
-          )
-          ?.textContent?.trim() || "";
-      // 브랜드
-      const brand =
-        document.querySelector(
-            '.sc-12cqkwk-2.hgzZM .text-body_14px_med.font-pretendard[data-mds="Typography"]'
-          )
-          ?.textContent?.trim() || "";
-      // ...나머지
-  return { name, brand, price, image };
-});
-```
 
 <br/>
 <br/>
