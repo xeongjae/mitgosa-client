@@ -1,10 +1,9 @@
 # MITGOSA(믿고사) - AI 리뷰 요약 서비스
 
 <br />
-<br />
 
 <p align="center">
-<img src="public/믿고사로고.png" alt="로고" width="700"/>
+<img src="public/믿고사로고.png" alt="로고" width="500"/>
 </p>
 
 <p align="center">
