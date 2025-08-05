@@ -13,11 +13,26 @@ function UrlInputForm() {
 
   // 지원 플랫폼 목록
   const platforms = [
-    { value: "musinsa", label: "무신사", logo: "/musinsa.png" },
-    { value: "29cm", label: "29CM", logo: "/29cm.png" },
-    { value: "ably", label: "에이블리", logo: "/ably.png" },
-    { value: "zigzag", label: "지그재그", logo: "/zigzag.png" },
-    { value: "wconcept", label: "W컨셉", logo: "/wconcept.png" },
+    {
+      value: "musinsa",
+      label: "무신사",
+      logo: "/musinsa.png",
+      supported: true,
+    },
+    { value: "29cm", label: "29CM", logo: "/29cm.png", supported: false },
+    { value: "ably", label: "에이블리", logo: "/ably.png", supported: false },
+    {
+      value: "zigzag",
+      label: "지그재그",
+      logo: "/zigzag.png",
+      supported: false,
+    },
+    {
+      value: "wconcept",
+      label: "W컨셉",
+      logo: "/wconcept.png",
+      supported: false,
+    },
   ];
 
   // 현재 선택된 플랫폼 정보
@@ -45,7 +60,10 @@ function UrlInputForm() {
   }, [showPlatformModal]);
 
   // 플랫폼 선택 핸들러
-  const handlePlatformSelect = (platformValue) => {
+  const handlePlatformSelect = (platformValue, isSupported) => {
+    if (!isSupported) {
+      return; // 지원하지 않는 플랫폼은 선택되지 않음
+    }
     setPlatform(platformValue);
     setShowPlatformModal(false);
   };
@@ -140,8 +158,15 @@ function UrlInputForm() {
                       {platforms.map((platform) => (
                         <div
                           key={platform.value}
-                          className="platform-item"
-                          onClick={() => handlePlatformSelect(platform.value)}
+                          className={`platform-item ${
+                            platform.supported ? "" : "unsupported"
+                          }`}
+                          onClick={() =>
+                            handlePlatformSelect(
+                              platform.value,
+                              platform.supported
+                            )
+                          }
                         >
                           <span>{platform.label}</span>
                         </div>

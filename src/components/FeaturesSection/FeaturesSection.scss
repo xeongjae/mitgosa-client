@@ -52,7 +52,6 @@
   font-weight: 700;
   color: #ffffff;
   padding-left: 16px;
-  cursor: pointer;
   transition: background-color 0.1s ease;
 
   &.border {
@@ -60,7 +59,18 @@
   }
 
   &:hover {
+    cursor: pointer;
     background-color: #282830;
+  }
+
+  // 지원하지 않는 플랫폼
+  &.not-supported {
+    opacity: 0.3;
+
+    &:hover {
+      cursor: default;
+      background-color: #31313c;
+    }
   }
 
   .shop-icon {
@@ -97,6 +107,18 @@
       font-weight: 400;
       color: #9e9eb1;
       line-height: 1.3;
+    }
+  }
+
+  // 지원하지 않는 플랫폼에서는 platform-name 호버 효과 제거
+  &.not-supported {
+    .platform-name {
+      cursor: default;
+
+      &:hover {
+        color: #ffffff;
+        text-decoration: none;
+      }
     }
   }
 }
