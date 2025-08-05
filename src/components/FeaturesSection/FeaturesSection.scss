@@ -54,6 +54,7 @@
   padding-left: 16px;
   cursor: pointer;
   transition: background-color 0.1s ease;
+  position: relative; // X 표시를 위한 relative 포지션 추가
 
   &.border {
     border-bottom: 1px solid #1c1c1f;
@@ -61,6 +62,16 @@
 
   &:hover {
     background-color: #282830;
+  }
+
+  // 지원하지 않는 플랫폼에 X 표시 추가
+  &.not-supported {
+    opacity: 0.3; // 약간 투명하게 만들어서 지원하지 않음을 표시
+
+    &:hover {
+      background-color: #31313c; // 호버 시에도 더 어두운 색상
+      cursor: not-allowed; // 지원하지 않음을 나타내는 커서
+    }
   }
 
   .shop-icon {

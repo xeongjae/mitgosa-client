@@ -264,7 +264,6 @@
   }
 }
 
-
 h3 {
   font-size: 24px;
   margin-bottom: 16px;
@@ -334,6 +333,17 @@ ul {
 
   &:hover {
     background-color: #282830;
+  }
+
+  &.unsupported {
+    opacity: 0.5;
+    cursor: not-allowed;
+
+
+    span {
+      color: #666 !important;
+      text-decoration: line-through;
+    }
   }
 
   span {

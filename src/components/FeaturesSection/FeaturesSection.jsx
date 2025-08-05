@@ -24,7 +24,7 @@ function FeaturesSection() {
               </div>
             </li>
             <li
-              className="feature-item1-content-item border"
+              className="feature-item1-content-item border not-supported"
               onClick={() => window.open("https://www.29cm.co.kr", "_blank")}
             >
               <p>-</p>
@@ -38,7 +38,7 @@ function FeaturesSection() {
               </div>
             </li>
             <li
-              className="feature-item1-content-item border"
+              className="feature-item1-content-item border not-supported"
               onClick={() => window.open("https://www.a-bly.com", "_blank")}
             >
               <p>-</p>
@@ -52,7 +52,7 @@ function FeaturesSection() {
               </div>
             </li>
             <li
-              className="feature-item1-content-item border"
+              className="feature-item1-content-item border not-supported"
               onClick={() => window.open("https://www.zigzag.kr", "_blank")}
             >
               <p>-</p>
@@ -66,7 +66,7 @@ function FeaturesSection() {
               </div>
             </li>
             <li
-              className="feature-item1-content-item"
+              className="feature-item1-content-item not-supported"
               onClick={() =>
                 window.open("https://www.wconcept.co.kr", "_blank")
               }
