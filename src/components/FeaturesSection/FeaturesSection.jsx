@@ -23,10 +23,7 @@ function FeaturesSection() {
                 </p>
               </div>
             </li>
-            <li
-              className="feature-item1-content-item border not-supported"
-              onClick={() => window.open("https://www.29cm.co.kr", "_blank")}
-            >
+            <li className="feature-item1-content-item border not-supported">
               <p>-</p>
               <img src="/29cm.png" alt="29cm" className="shop-icon" />
               <div>
@@ -37,10 +34,7 @@ function FeaturesSection() {
                 </p>
               </div>
             </li>
-            <li
-              className="feature-item1-content-item border not-supported"
-              onClick={() => window.open("https://www.a-bly.com", "_blank")}
-            >
+            <li className="feature-item1-content-item border not-supported">
               <p>-</p>
               <img src="/ably.png" alt="에이블리" className="shop-icon" />
               <div>
@@ -51,10 +45,7 @@ function FeaturesSection() {
                 </p>
               </div>
             </li>
-            <li
-              className="feature-item1-content-item border not-supported"
-              onClick={() => window.open("https://www.zigzag.kr", "_blank")}
-            >
+            <li className="feature-item1-content-item border not-supported">
               <p>-</p>
               <img src="/zigzag.png" alt="지그재그" className="shop-icon" />
               <div>
@@ -65,12 +56,7 @@ function FeaturesSection() {
                 </p>
               </div>
             </li>
-            <li
-              className="feature-item1-content-item not-supported"
-              onClick={() =>
-                window.open("https://www.wconcept.co.kr", "_blank")
-              }
-            >
+            <li className="feature-item1-content-item not-supported">
               <p>-</p>
               <img src="/wconcept.png" alt="W컨샙" className="shop-icon" />
               <div>
