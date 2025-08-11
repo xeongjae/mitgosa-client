@@ -142,7 +142,7 @@ function ResultHeader() {
     }
 
     try {
-      const response = await fetch("http://localhost:4000/api/analyze", {
+      const response = await fetch("https://mitgosa.onrender.com/api/analyze", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
