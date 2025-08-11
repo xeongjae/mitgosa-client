@@ -231,32 +231,6 @@ function UrlInputForm() {
                   <input type="hidden" value={platform} name="platform" />
                 </div>
               </div>
-
-              {/* 플랫폼 모달을 region-selector 내부로 이동 */}
-              {showPlatformModal && (
-                <div className="platform-modal" ref={modalRef}>
-                  <div className="platform-modal-content">
-                    <div className="platform-list">
-                      {platforms.map((platform) => (
-                        <div
-                          key={platform.value}
-                          className={`platform-item ${
-                            platform.supported ? "" : "unsupported"
-                          }`}
-                          onClick={() =>
-                            handlePlatformSelect(
-                              platform.value,
-                              platform.supported
-                            )
-                          }
-                        >
-                          <span>{platform.label}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
             </div>
 
             <div className="input-container">
@@ -273,7 +247,7 @@ function UrlInputForm() {
                 onChange={(e) => setUrl(e.target.value)}
                 placeholder="상품 링크를 입력해주세요"
                 name="productUrl"
-                ref={inputRef} // inputRef 연결
+                ref={inputRef}
               />
             </div>
 
@@ -285,6 +259,28 @@ function UrlInputForm() {
               <span className="go-text">.GO</span>
             </button>
           </form>
+
+          {showPlatformModal && (
+            <div className="platform-modal" ref={modalRef}>
+              <div className="platform-modal-content">
+                <div className="platform-list">
+                  {platforms.map((platform) => (
+                    <div
+                      key={platform.value}
+                      className={`platform-item ${
+                        platform.supported ? "" : "unsupported"
+                      }`}
+                      onClick={() =>
+                        handlePlatformSelect(platform.value, platform.supported)
+                      }
+                    >
+                      <span>{platform.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
