@@ -1,7 +1,58 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./AnalysisResult.scss";
 
 const AnalysisResult = ({ result }) => {
+  // 애니메이션 상태 관리
+  const [visibleElements, setVisibleElements] = useState({
+    resultSection: false,
+    topMidSection: false,
+    bottomSection1: false,
+    bottomSection2: false,
+  });
+
+  // 순차적 애니메이션 트리거
+  useEffect(() => {
+    // 애니메이션 초기화
+    setVisibleElements({
+      resultSection: false,
+      topMidSection: false,
+      bottomSection1: false,
+      bottomSection2: false,
+    });
+
+    const timeouts = [];
+
+    // 각 요소를 0.4초 간격으로 순차적으로 나타내기
+    timeouts.push(
+      setTimeout(() => {
+        setVisibleElements((prev) => ({ ...prev, resultSection: true }));
+      }, 200)
+    );
+
+    timeouts.push(
+      setTimeout(() => {
+        setVisibleElements((prev) => ({ ...prev, topMidSection: true }));
+      }, 600)
+    );
+
+    timeouts.push(
+      setTimeout(() => {
+        setVisibleElements((prev) => ({ ...prev, bottomSection1: true }));
+      }, 1000)
+    );
+
+    timeouts.push(
+      setTimeout(() => {
+        setVisibleElements((prev) => ({ ...prev, bottomSection2: true }));
+      }, 1400)
+    );
+
+    // 컴포넌트 언마운트 시 타이머 정리
+    return () => {
+      timeouts.forEach((timeout) => clearTimeout(timeout));
+    };
+  }, [result]); // result가 변경될 때마다 애니메이션 재실행
+
   // 에러 처리
   if (!result || !result.success) {
     return (
@@ -58,7 +109,11 @@ const AnalysisResult = ({ result }) => {
 
   return (
     <div className="analysis-result-layout">
-      <div className="analysis-result">
+      <div
+        className={`analysis-result ${
+          visibleElements.resultSection ? "fade-in-up" : "fade-out"
+        }`}
+      >
         <div className="result-header">
           <h1>{analysisData.total_reviews}개의 리뷰 AI 분석 결과입니다.</h1>
         </div>
@@ -88,7 +143,11 @@ const AnalysisResult = ({ result }) => {
         </div>
       </div>
       <div className="analysis-result-container">
-        <div className="analysis-top">
+        <div
+          className={`analysis-top ${
+            visibleElements.topMidSection ? "fade-in-up" : "fade-out"
+          }`}
+        >
           <h2>어떤 점이 좋았고, 아쉬웠을까요?</h2>
           <div className="chart-container">
             <div className="chart">
@@ -151,7 +210,11 @@ const AnalysisResult = ({ result }) => {
             </div>
           </div>
         </div>
-        <div className="analysis-mid">
+        <div
+          className={`analysis-mid ${
+            visibleElements.topMidSection ? "fade-in-up" : "fade-out"
+          }`}
+        >
           <div className="pros-cons-section">
             <div className="pros-section">
               <ul>
@@ -192,13 +255,21 @@ const AnalysisResult = ({ result }) => {
             </div>
           </div>
         </div>
-        <div className="analysis-bottom">
+        <div
+          className={`analysis-bottom ${
+            visibleElements.bottomSection1 ? "fade-in-up" : "fade-out"
+          }`}
+        >
           <h2>구매자들이 느낀 사이즈 체감입니다.</h2>
           <div className="recommendation-content">
             <p>{analysisData.size}</p>
           </div>
         </div>
-        <div className="analysis-bottom">
+        <div
+          className={`analysis-bottom ${
+            visibleElements.bottomSection2 ? "fade-in-up" : "fade-out"
+          }`}
+        >
           <h2>이런 분이라면 만족하실 거예요!</h2>
           <div className="recommendation-content">
             <p>{analysisData.recommendation}</p>
