@@ -5,6 +5,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   server: {
+    historyApiFallback: true, // SPA 라우팅 지원
     proxy: {
       "/api": {
         target: "https://mitgosa.onrender.com",
@@ -12,5 +13,5 @@ export default defineConfig({
       },
     },
   },
-  base: "./",
+  base: "/", // 절대 경로로 변경
 });
