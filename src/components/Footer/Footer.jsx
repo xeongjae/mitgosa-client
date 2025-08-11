@@ -36,7 +36,7 @@ function Footer() {
             믿고사 (MITGOSA) | 본 사이트는 상업적 목적이 아닌 학습을 위해
             제작되었습니다.
           </p>
-          <p>전화: 010-62-7-0840 | 이메일: newsungjae0407@gmail.com</p>
+          <p>전화: 010-6207-0840 | 이메일: newsungjae0407@gmail.com</p>
           <p>© 2025 Kim Sungjae. All rights reserved.</p>
         </div>
 

@@ -7,14 +7,32 @@ function ResultHeader() {
   const [platform, setPlatform] = useState("musinsa");
   const [showPlatformModal, setShowPlatformModal] = useState(false);
   const modalRef = useRef(null);
+  const loadingCleanupRef = useRef(null);
   const navigate = useNavigate();
 
-  // 홈으로 이동 기능
+  const createLoadingBar = (inputElement, duration = 10000) => {
+    const startTime = Date.now();
+    let animationId;
+
+    function updateLoadingBar() {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min((elapsed / duration) * 100, 100);
+
+      inputElement.style.setProperty("--loading-progress", `${progress}%`);
+
+      if (progress < 100) {
+        animationId = requestAnimationFrame(updateLoadingBar);
+      }
+    }
+
+    animationId = requestAnimationFrame(updateLoadingBar);
+    return () => cancelAnimationFrame(animationId);
+  };
+
   const handleLogoClick = () => {
     window.location.href = "/";
   };
 
-  // URL 복사 기능
   const handleShareLink = () => {
     const currentUrl = window.location.href;
     navigator.clipboard
@@ -27,12 +45,10 @@ function ResultHeader() {
       });
   };
 
-  // 포트폴리오 링크 이동
   const handlePortfolio = () => {
     window.open("https://seongjae-portfolio.netlify.app/", "_blank");
   };
 
-  // 피드백 기능 (구글 폼 연결)
   const handleFeedback = () => {
     window.open(
       "https://docs.google.com/forms/d/e/1FAIpQLSdRTOL98fGuEgfmmCPufO3U7GTrDn60__gyAcUbQoNoGa_LIA/viewform?usp=dialog",
@@ -40,23 +56,34 @@ function ResultHeader() {
     );
   };
 
-  // 지원 플랫폼 목록
   const platforms = [
-    { value: "musinsa", label: "무신사", logo: "/musinsa.png" },
-    { value: "29cm", label: "29CM", logo: "/29cm.png" },
-    { value: "ably", label: "에이블리", logo: "/ably.png" },
-    { value: "zigzag", label: "지그재그", logo: "/zigzag.png" },
-    { value: "wconcept", label: "W컨셉", logo: "/wconcept.png" },
+    {
+      value: "musinsa",
+      label: "무신사",
+      logo: "/musinsa.png",
+      supported: true,
+    },
+    { value: "29cm", label: "29CM", logo: "/29cm.png", supported: false },
+    { value: "ably", label: "에이블리", logo: "/ably.png", supported: false },
+    {
+      value: "zigzag",
+      label: "지그재그",
+      logo: "/zigzag.png",
+      supported: false,
+    },
+    {
+      value: "wconcept",
+      label: "W컨셉",
+      logo: "/wconcept.png",
+      supported: false,
+    },
   ];
 
-  // 현재 선택된 플랫폼 정보
   const selectedPlatform = platforms.find((p) => p.value === platform);
 
-  // 모달 외부 클릭 시 닫기
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
-        // 플랫폼 버튼 클릭이 아닌 경우에만 모달 닫기
         const platformButton = document.getElementById("platformSelect");
         if (platformButton && !platformButton.contains(event.target)) {
           setShowPlatformModal(false);
@@ -73,15 +100,24 @@ function ResultHeader() {
     };
   }, [showPlatformModal]);
 
-  // 플랫폼 선택 핸들러
-  const handlePlatformSelect = (platformValue) => {
+  useEffect(() => {
+    return () => {
+      if (loadingCleanupRef.current) {
+        loadingCleanupRef.current();
+      }
+    };
+  }, []);
+
+  const handlePlatformSelect = (platformValue, isSupported) => {
+    if (!isSupported) {
+      return;
+    }
     setPlatform(platformValue);
     setShowPlatformModal(false);
   };
 
-  // 플랫폼 버튼 클릭 핸들러 (토글 기능)
   const handlePlatformButtonClick = (e) => {
-    e.stopPropagation(); // 이벤트 전파 방지
+    e.stopPropagation();
     setShowPlatformModal(!showPlatformModal);
   };
 
@@ -90,6 +126,19 @@ function ResultHeader() {
 
     if (!url.trim()) {
       return;
+    }
+
+    const searchForm = document.querySelector(
+      ".result-page-search-form-container .search-form"
+    );
+    if (searchForm) {
+      searchForm.style.setProperty("--loading-progress", "0%");
+      searchForm.classList.add("loading");
+
+      setTimeout(() => {
+        const cleanup = createLoadingBar(searchForm, 5000);
+        loadingCleanupRef.current = cleanup;
+      }, 50);
     }
 
     try {
@@ -104,15 +153,45 @@ function ResultHeader() {
       const data = await response.json();
 
       if (response.ok) {
-        // result 페이지로 이동하면서 분석 결과 전달
-        navigate("/result", {
-          state: {
-            analysisData: data,
-          },
-        });
+        if (loadingCleanupRef.current) {
+          loadingCleanupRef.current();
+          loadingCleanupRef.current = null;
+        }
+
+        if (searchForm) {
+          searchForm.style.transition = "--loading-progress 0.5s ease-out";
+          searchForm.style.setProperty("--loading-progress", "100%");
+
+          setTimeout(() => {
+            searchForm.classList.remove("loading");
+            searchForm.style.removeProperty("--loading-progress");
+            searchForm.style.removeProperty("transition");
+            navigate("/result", {
+              state: {
+                analysisData: data,
+              },
+            });
+          }, 600);
+        } else {
+          navigate("/result", {
+            state: {
+              analysisData: data,
+            },
+          });
+        }
       }
     } catch (error) {
       console.error("분석 요청 에러:", error);
+    } finally {
+      if (loadingCleanupRef.current) {
+        loadingCleanupRef.current();
+        loadingCleanupRef.current = null;
+      }
+
+      if (searchForm) {
+        searchForm.classList.remove("loading");
+        searchForm.style.removeProperty("--loading-progress");
+      }
     }
   };
 
@@ -151,25 +230,6 @@ function ResultHeader() {
                     <input type="hidden" value={platform} name="platform" />
                   </div>
                 </div>
-
-                {/* 플랫폼 모달을 region-selector 내부로 이동 */}
-                {showPlatformModal && (
-                  <div className="platform-modal" ref={modalRef}>
-                    <div className="platform-modal-content">
-                      <div className="platform-list">
-                        {platforms.map((platform) => (
-                          <div
-                            key={platform.value}
-                            className="platform-item"
-                            onClick={() => handlePlatformSelect(platform.value)}
-                          >
-                            <span>{platform.label}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
               </div>
 
               <div className="input-container">
@@ -196,6 +256,31 @@ function ResultHeader() {
                 <span className="go-text">.GO</span>
               </button>
             </form>
+
+            {showPlatformModal && (
+              <div className="platform-modal" ref={modalRef}>
+                <div className="platform-modal-content">
+                  <div className="platform-list">
+                    {platforms.map((platform) => (
+                      <div
+                        key={platform.value}
+                        className={`platform-item ${
+                          platform.supported ? "" : "unsupported"
+                        }`}
+                        onClick={() =>
+                          handlePlatformSelect(
+                            platform.value,
+                            platform.supported
+                          )
+                        }
+                      >
+                        <span>{platform.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
         <div className="result-header-right">

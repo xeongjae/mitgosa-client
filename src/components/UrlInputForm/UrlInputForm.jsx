@@ -4,12 +4,36 @@ import { useNavigate } from "react-router-dom";
 
 function UrlInputForm() {
   const [url, setUrl] = useState("");
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
   const [platform, setPlatform] = useState("musinsa");
   const [showPlatformModal, setShowPlatformModal] = useState(false);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [loadingProgress, setLoadingProgress] = useState(0);
   const modalRef = useRef(null);
+  const inputRef = useRef(null);
+  const loadingCleanupRef = useRef(null);
   const navigate = useNavigate();
+
+  // 로딩 애니메이션
+  const createLoadingBar = (inputElement, duration = 10000) => {
+    const startTime = Date.now();
+    let animationId;
+
+    function updateLoadingBar() {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min((elapsed / duration) * 100, 100);
+
+      inputElement.style.setProperty("--loading-progress", `${progress}%`);
+      setLoadingProgress(Math.round(progress));
+
+      if (progress < 100) {
+        animationId = requestAnimationFrame(updateLoadingBar);
+      }
+    }
+
+    animationId = requestAnimationFrame(updateLoadingBar);
+    return () => cancelAnimationFrame(animationId);
+  };
 
   // 지원 플랫폼 목록
   const platforms = [
@@ -83,7 +107,21 @@ function UrlInputForm() {
     }
 
     setLoading(true);
+    setLoadingProgress(0);
     setError(null);
+
+    let hasError = false;
+
+    const searchForm = document.querySelector(".search-form");
+    if (searchForm) {
+      searchForm.style.setProperty("--loading-progress", "0%");
+      searchForm.classList.add("loading");
+
+      setTimeout(() => {
+        const cleanup = createLoadingBar(searchForm, 15000);
+        loadingCleanupRef.current = cleanup;
+      }, 50);
+    }
 
     try {
       const response = await fetch("http://localhost:4000/api/analyze", {
@@ -97,22 +135,66 @@ function UrlInputForm() {
       const data = await response.json();
 
       if (response.ok) {
-        // Result 페이지로 이동하면서 분석 결과 전달
-        navigate("/Result", {
-          state: {
-            analysisData: data,
-          },
-        });
+        if (loadingCleanupRef.current) {
+          loadingCleanupRef.current();
+          loadingCleanupRef.current = null;
+        }
+
+        if (searchForm) {
+          searchForm.style.transition = "--loading-progress 0.5s ease-out";
+          searchForm.style.setProperty("--loading-progress", "100%");
+          setLoadingProgress(100);
+
+          setTimeout(() => {
+            searchForm.classList.remove("loading");
+            searchForm.style.removeProperty("--loading-progress");
+            searchForm.style.removeProperty("transition");
+            navigate("/Result", {
+              state: {
+                analysisData: data,
+              },
+            });
+          }, 600);
+        } else {
+          navigate("/Result", {
+            state: {
+              analysisData: data,
+            },
+          });
+        }
       } else {
+        hasError = true;
         setError(data.error || "분석 중 오류가 발생했습니다.");
       }
     } catch (error) {
       console.error("분석 요청 에러:", error);
+      hasError = true;
       setError("네트워크 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
     } finally {
-      setLoading(false);
+      if (loadingCleanupRef.current) {
+        loadingCleanupRef.current();
+        loadingCleanupRef.current = null;
+      }
+
+      if (hasError) {
+        if (searchForm) {
+          searchForm.classList.remove("loading");
+          searchForm.style.removeProperty("--loading-progress");
+        }
+        setLoading(false);
+        setLoadingProgress(0);
+      }
     }
   };
+
+  // 컴포넌트 언마운트시 정리
+  useEffect(() => {
+    return () => {
+      if (loadingCleanupRef.current) {
+        loadingCleanupRef.current();
+      }
+    };
+  }, []);
 
   return (
     <>
@@ -188,6 +270,7 @@ function UrlInputForm() {
                 onChange={(e) => setUrl(e.target.value)}
                 placeholder="상품 링크를 입력해주세요"
                 name="productUrl"
+                ref={inputRef} // inputRef 연결
               />
             </div>
 
@@ -205,7 +288,16 @@ function UrlInputForm() {
       {/* 메시지를 위한 고정된 공간 */}
       <div className="message-container">
         {loading && (
-          <div className="loading-message">AI가 리뷰를 분석 중입니다...</div>
+          <div className="loading-message">
+            {loadingProgress < 100 ? (
+              <>
+                AI가 리뷰를 분석 중입니다...
+                <span className="progress-number">{loadingProgress}%</span>
+              </>
+            ) : (
+              "잠시만 기다려주세요..."
+            )}
+          </div>
         )}
         {error && <div className="error-message">{error}</div>}
         {!loading && !error && <div className="message-placeholder"></div>}
