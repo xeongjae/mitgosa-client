@@ -22,29 +22,29 @@ const AnalysisResult = ({ result }) => {
 
     const timeouts = [];
 
-    // 각 요소를 0.4초 간격으로 순차적으로 나타내기
+    // 각 요소를 더 자연스럽게 순차적으로 나타내기
     timeouts.push(
       setTimeout(() => {
         setVisibleElements((prev) => ({ ...prev, resultSection: true }));
-      }, 200)
+      }, 300)
     );
 
     timeouts.push(
       setTimeout(() => {
         setVisibleElements((prev) => ({ ...prev, topMidSection: true }));
-      }, 600)
+      }, 800)
     );
 
     timeouts.push(
       setTimeout(() => {
         setVisibleElements((prev) => ({ ...prev, bottomSection1: true }));
-      }, 1000)
+      }, 1300)
     );
 
     timeouts.push(
       setTimeout(() => {
         setVisibleElements((prev) => ({ ...prev, bottomSection2: true }));
-      }, 1400)
+      }, 1800)
     );
 
     // 컴포넌트 언마운트 시 타이머 정리
@@ -111,7 +111,7 @@ const AnalysisResult = ({ result }) => {
     <div className="analysis-result-layout">
       <div
         className={`analysis-result ${
-          visibleElements.resultSection ? "fade-in-up" : "fade-out"
+          visibleElements.resultSection ? "scale-in" : "scale-out"
         }`}
       >
         <div className="result-header">
