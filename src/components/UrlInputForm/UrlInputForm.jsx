@@ -20,8 +20,8 @@ function UrlInputForm() {
     let animationId;
 
     function updateLoadingBar() {
-      const elapsed = Date.now() - startTime;
-      const progress = Math.min((elapsed / duration) * 100, 100);
+      const timePassed = Date.now() - startTime;
+      const progress = Math.min((timePassed / duration) * 100, 100);
 
       inputElement.style.setProperty("--loading-progress", `${progress}%`);
       setLoadingProgress(Math.round(progress));
@@ -131,7 +131,7 @@ function UrlInputForm() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ url }),
+          body:JSON.stringify({ url }),
         }
       );
 
