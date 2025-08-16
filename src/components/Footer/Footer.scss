@@ -11,7 +11,9 @@
   flex-wrap: wrap;
   justify-content: space-between;
   max-width: 1040px;
-  margin: 24px auto;
+  margin: auto;
+  padding: 24px 0;
+  border-top: 1px solid #424254;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -51,7 +53,7 @@
       margin-bottom: 8px;
 
       a {
-        color: #9e9eb1;
+        color: #7b7a8e;
         text-decoration: none;
         font-size: 13px;
         transition: color 0.2s;
