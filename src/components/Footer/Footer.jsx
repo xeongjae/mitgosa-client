@@ -43,17 +43,17 @@ function Footer() {
         <div className="quick-links">
           <button
             className="quick-link"
-            onClick={handleShareLink}
-            type="button"
-          >
-            링크공유
-          </button>
-          <button
-            className="quick-link"
             onClick={handlePortfolio}
             type="button"
           >
             포트폴리오
+          </button>
+          <button
+            className="quick-link"
+            onClick={handleShareLink}
+            type="button"
+          >
+            링크공유
           </button>
           <button className="quick-link" onClick={handleFeedback} type="button">
             피드백

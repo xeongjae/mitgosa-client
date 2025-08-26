@@ -13,24 +13,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.app-container {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0;
-}
-
-h1 {
-  font-size: 2em;
-  line-height: 1.1;
-}
-
 button {
   cursor: pointer;
   font-family: inherit;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  border-radius: 8px;
-  transition: border-color 0.25s;
 }

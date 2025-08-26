@@ -1,20 +1,12 @@
 .features-section {
+  width: 1040px;
   padding-top: 4px;
+  margin-bottom: 4px;
 }
 
 .features {
   display: flex;
   justify-content: space-between;
-
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-  }
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
 }
 
 .feature-item1 {

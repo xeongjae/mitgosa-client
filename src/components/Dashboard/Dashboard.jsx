@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./Stats.scss";
+import "./Dashboard.scss";
 
-const Stats = () => {
+const Dashboard = () => {
   const [stats, setStats] = useState({
     totalVisitors: 0,
     totalAnalysis: 0,
@@ -93,4 +93,4 @@ const Stats = () => {
   );
 };
 
-export default Stats;
+export default Dashboard;

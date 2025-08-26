@@ -1,7 +1,7 @@
 import React from "react";
-import "./FeaturesSection.scss";
+import "./Showcase.scss";
 
-function FeaturesSection() {
+function Showcase() {
   return (
     <section className="features-section">
       <div className="features">
@@ -10,7 +10,12 @@ function FeaturesSection() {
           <ol className="feature-item1-content">
             <li
               className="feature-item1-content-item border"
-              onClick={() => window.open("https://www.musinsa.com/main/musinsa/ranking?gf=M&storeCode=musinsa&sectionId=200&contentsId=&categoryCode=000&ageBand=AGE_BAND_ALL", "_blank")}
+              onClick={() =>
+                window.open(
+                  "https://www.musinsa.com/main/musinsa/ranking?gf=M&storeCode=musinsa&sectionId=200&contentsId=&categoryCode=000&ageBand=AGE_BAND_ALL",
+                  "_blank"
+                )
+              }
             >
               <p>-</p>
               <img src="/musinsa.png" alt="무신사" className="shop-icon" />
@@ -99,4 +104,4 @@ function FeaturesSection() {
   );
 }
 
-export default FeaturesSection;
+export default Showcase;

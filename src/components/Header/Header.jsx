@@ -1,66 +1,65 @@
 import React from "react";
-import "./Header.scss"; // Import the SCSS file directly
+import "./Header.scss";
 
 function Header() {
-  // 홈으로 이동 기능
-  const handleLogoClick = () => {
+  const urls = {
+    portfolio: "https://seongjae-portfolio.netlify.app/",
+    feedback: "https://docs.google.com/forms/...",
+  };
+
+  const navigateToHome = () => {
     window.location.href = "/";
   };
 
-  // URL 복사 기능
-  const handleShareLink = () => {
-    const currentUrl = window.location.href;
+  const openPortfolio = () => {
+    window.open(urls.portfolio, "_blank");
+  };
+
+  const copyCurrentUrl = () => {
+    const url = window.location.href;
     navigator.clipboard
-      .writeText(currentUrl)
+      .writeText(url)
       .then(() => {
         alert("링크가 복사되었습니다.");
       })
       .catch(() => {
-        alert("링크 복사에 실패했습니다. 다시 시도해주세요.");
+        alert("링크 복사에 실패했습니다.");
       });
   };
 
-  // 포트폴리오 링크 이동
-  const handlePortfolio = () => {
-    window.open("https://seongjae-portfolio.netlify.app/", "_blank");
-  };
-
-  // 피드백 기능 (구글 폼 연결)
-  const handleFeedback = () => {
-    window.open(
-      "https://docs.google.com/forms/d/e/1FAIpQLSdRTOL98fGuEgfmmCPufO3U7GTrDn60__gyAcUbQoNoGa_LIA/viewform?usp=dialog",
-      "_blank"
-    );
+  const openFeedback = () => {
+    window.open(urls.feedback, "_blank");
   };
 
   return (
-    // Use string literals for class names
     <header className="header-container">
-      <div className="logo" onClick={handleLogoClick}>
-        믿고사
-      </div>
-      <div className="header-right">
-        <button
-          className="header-right-item"
-          onClick={handleShareLink}
-          type="button"
-        >
-          링크복사
-        </button>
-        <button
-          className="header-right-item"
-          onClick={handlePortfolio}
-          type="button"
-        >
-          포트폴리오
-        </button>
-        <button
-          className="header-right-item"
-          onClick={handleFeedback}
-          type="button"
-        >
-          피드백
-        </button>
+      <div className="header-layout-container">
+        <div className="logo" onClick={navigateToHome}>
+          믿고사
+        </div>
+        <div className="header-category-box">
+          <button
+            className="header-category-item"
+            onClick={openPortfolio}
+            type="button"
+          >
+            포트폴리오
+          </button>
+          <button
+            className="header-category-item"
+            onClick={copyCurrentUrl}
+            type="button"
+          >
+            링크복사
+          </button>
+          <button
+            className="header-category-item"
+            onClick={openFeedback}
+            type="button"
+          >
+            피드백
+          </button>
+        </div>
       </div>
     </header>
   );

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import ResultHeader from "../components/ResultPageSearch/ResultHeader";
-import Header from "../components/Header/Header";
+import ResultHeader from "../components/ResultHeader/ResultHeader";
 import Footer from "../components/Footer/Footer";
 import AnalysisResult from "../components/AnalysisResult/AnalysisResult";
-import "./Result.scss";
+import "./ResultPage.scss";
 
-const Result = () => {
+const ResultPage = () => {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(true);
   const location = useLocation();
@@ -28,7 +27,7 @@ const Result = () => {
       <div className="summary-container">
         <div className="header-layout-container">
           <div className="layout-container">
-            <Header />
+            <ResultHeader />
           </div>
         </div>
 
@@ -60,4 +59,4 @@ const Result = () => {
   );
 };
 
-export default Result;
+export default ResultPage;

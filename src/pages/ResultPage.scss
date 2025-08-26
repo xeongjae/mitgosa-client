@@ -11,12 +11,14 @@
   flex-direction: column;
   color: #ffffff;
 }
+
 .loading-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 80vh;
 }
+
 .loading-section {
   display: flex;
   flex-direction: column;
@@ -29,10 +31,6 @@
     font-size: 1.5rem;
     margin-bottom: 30px;
     color: #ffffff;
-
-    @media (max-width: 768px) {
-      font-size: 1.2rem;
-    }
   }
 }
 

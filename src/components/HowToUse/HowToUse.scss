@@ -1,57 +1,59 @@
-.feature-item2 {
+.how-to-use-section {
   width: 1040px;
   height: 280px;
   display: flex;
   flex-direction: column;
+  gap: 1px;
   border-radius: 4px;
   overflow: hidden;
 }
 
-.item2-title {
+.how-to-use-title {
   height: 50px;
   font-size: 14px;
   font-weight: 700;
   color: #ffffff;
-  padding: 14px 0 16px 12px;
+  padding: 14px;
   background-color: #31313c;
-  border-bottom: 1px solid #1c1c1f;
 }
 
-.item2-flex {
+.how-to-use-grid {
   display: flex;
-  width: 1040px;
-  height: 500px;
+  gap: 1px;
 }
 
-.item2-grid-item {
+.how-to-use-grid-item {
   width: 260px;
+  height: 230px;
   padding: 8px;
-  color: #ffffff;
   background-color: #31313c;
   font-size: 20px;
+
+  &:hover {
+    .how-to-use-image {
+      transform: scale(1.07);
+    }
+  }
 }
 
-.item2-border {
-  border-right: 1px solid #1c1c1f;
-}
-
-.item2-grid-item-content {
-  width: 100%;
+.how-to-use-grid-item-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
+
   p {
+    padding: 8px;
     font-size: 14px;
-    font-weight: 500;
-    color: #ffffff;
+    font-weight: 400;
     text-align: center;
     line-height: 1.4;
   }
 }
 
-.item2-image {
+.how-to-use-image {
   width: 100px;
   height: 100px;
+  transition: all 0.3s ease; // 부드러운 전환 효과
 }
