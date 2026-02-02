@@ -8,7 +8,7 @@ export default defineConfig({
     historyApiFallback: true,
     proxy: {
       "/api": {
-        target: "https://mitgosa.onrender.com",
+        target: "http://localhost:3000",
         changeOrigin: true,
       },
     },

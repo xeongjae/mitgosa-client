@@ -142,7 +142,8 @@ function ResultHeader() {
     }
 
     try {
-      const response = await fetch("https://mitgosa.onrender.com/api/analyze", {
+      const API_BASE = import.meta.env.VITE_API_URL || "";
+      const response = await fetch(`${API_BASE}/api/analyze`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -73,7 +73,7 @@ function FeaturesSection() {
           <div className="feature-item1-title">응답 API</div>
           <img src="/modified_tttest.png" alt="logo" className="tool-image" />
           <h3>Gemini API</h3>
-          <p className="api-subtitle">Google Gemini 2.0 Flash</p>
+          <p className="api-subtitle">Google Gemini 2.5 Flash</p>
 
           <div className="api-links">
             <a
