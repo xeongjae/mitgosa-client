@@ -294,7 +294,7 @@ function UrlInputForm() {
                 <span className="progress-number">{loadingProgress}%</span>
               </>
             ) : (
-              "잠시만 기다려주세요..."
+              "잠시만 기다려주세요"
             )}
           </div>
         )}

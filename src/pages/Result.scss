@@ -1,3 +1,5 @@
+@use '../styles/breakpoints' as *;
+
 .result-header-layout-container {
   display: flex;
   justify-content: center;
@@ -6,17 +8,30 @@
   height: 56px;
 }
 
+.result-mobile-search-bar {
+  display: none;
+
+  @include mobile {
+    display: flex;
+    align-items: flex-start;
+    background-color: #4270d3;
+    padding: 0px 16px 20px 16px;
+  }
+}
+
 .summary-container {
   display: flex;
   flex-direction: column;
   color: #ffffff;
 }
+
 .loading-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 80vh;
 }
+
 .loading-section {
   display: flex;
   flex-direction: column;
@@ -25,12 +40,17 @@
   min-height: 80vh;
   width: 1040px;
 
+  @include mobile {
+    width: 100%;
+    padding: 0 16px;
+  }
+
   h1 {
     font-size: 1.5rem;
     margin-bottom: 30px;
     color: #ffffff;
 
-    @media (max-width: 768px) {
+    @include small {
       font-size: 1.2rem;
     }
   }
@@ -49,6 +69,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }

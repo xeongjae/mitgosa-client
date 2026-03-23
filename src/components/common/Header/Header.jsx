@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.scss"; // Import the SCSS file directly
 
-function Header() {
+function Header({ centerContent = null }) {
   // 홈으로 이동 기능
   const handleLogoClick = () => {
     window.location.href = "/";
@@ -35,10 +35,13 @@ function Header() {
 
   return (
     // Use string literals for class names
-    <header className="header-container">
+    <header
+      className={`header-container ${centerContent ? "header-container--with-center" : ""}`}
+    >
       <div className="logo" onClick={handleLogoClick}>
-        믿고사
+        MITGOSA
       </div>
+      {centerContent && <div className="header-center">{centerContent}</div>}
       <div className="header-right">
         <button
           className="header-right-item"

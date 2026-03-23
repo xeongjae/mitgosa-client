@@ -15,6 +15,11 @@ body {
   padding: 0;
   background-color: #1c1c1f; /* 전체 배경색 설정 */
   color: #ffffff; /* 기본 글자색 설정 */
+  overflow-x: hidden; /* 가로 스크롤 방지 */
+}
+
+html {
+  overflow-x: hidden; /* 가로 스크롤 방지 */
 }
 
 /* 

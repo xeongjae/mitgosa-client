@@ -1,52 +1,70 @@
+@use '../../../styles/breakpoints' as *;
+
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 1040px;
-  height: 40px;
+  height: 56px;
+
+  @include mobile {
+    width: 100%;
+    padding: 0 16px;
+  }
 }
+
+.header-container--with-center {
+  gap: 16px;
+}
+
 .logo {
   display: flex;
   align-items: center;
-  height: 40px;
+  height: 56px;
   font-family: "Noto Sans KR", "Pretendard", sans-serif;
   font-weight: 800;
-  font-size: 20px;
+  font-size: 24px;
   color: #ffffff;
   padding: 0;
   cursor: pointer;
-  transition: color 0.1s ease;
+}
 
-  &:hover {
-    border-bottom: 4px solid #ffffff;
+.header-center {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  @include mobile {
+    display: none;
   }
 }
 
 .header-right {
   display: flex;
+  justify-content: flex-end;
   gap: 20px;
-  width: 200px;
-  height: 40px;
+  width: 210px;
+  flex-shrink: 0;
+  height: 56px;
   font-size: 14px;
   font-weight: 700;
   color: #b3cdff;
 }
 
 .header-right-item {
-  height: 40px;
+  height: 56px;
   background: none;
   border: none;
   color: #b3cdff;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   font-family: inherit;
   border-radius: 0;
   cursor: pointer;
   padding: 0;
-  transition: color 0.1s ease;
+  transition: color 0.05s ease;
 
   &:hover {
     color: #ffffff;
-    border-bottom: 4px solid #ffffff;
   }
 }

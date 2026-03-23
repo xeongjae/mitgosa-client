@@ -1,8 +1,15 @@
+@use '../../../styles/breakpoints' as *;
+
 .search-form-container {
   position: relative;
   margin: 0 auto;
   width: 100%;
   max-width: 800px;
+
+  @include mobile {
+    max-width: 800px;
+    padding: 0 16px;
+  }
 }
 
 .search-form {
@@ -33,9 +40,9 @@
     transition: width 0.1s ease-out;
     pointer-events: none;
     z-index: 1;
-    border-radius: inherit; /* search-form의 border-radius 상속 */
+    border-radius: inherit;
     opacity: 0;
-    transform: translateZ(0); /* GPU 가속 활성화 */
+    transform: translateZ(0);
   }
 
   &.loading {
@@ -87,7 +94,6 @@
   }
 }
 
-/* 플랫폼 선택 버튼 스타일 */
 .platform-button {
   position: relative;
   display: flex;
@@ -106,6 +112,10 @@
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s ease;
+
+  @include mobile {
+    width: 140px;
+  }
 
   &::after {
     content: "";
@@ -134,17 +144,11 @@
 }
 
 .hidden-mobile {
-  @media (max-width: 768px) {
-    display: none;
-  }
+  /* 항상 보이도록 설정 */
 }
 
 .mobile-only {
   display: none;
-
-  @media (max-width: 768px) {
-    display: inline;
-  }
 }
 
 .input-container {
@@ -236,18 +240,6 @@
   width: 42px;
 }
 
-.loading-message {
-  margin-top: 16px;
-  text-align: center;
-  color: #333;
-}
-
-.error-message {
-  margin-top: 16px;
-  text-align: center;
-  color: #e74c3c;
-}
-
 .message-container {
   min-height: 60px;
   display: flex;
@@ -280,7 +272,7 @@
 }
 
 .error-message {
-  margin: 0; /* 컨테이너 안에서는 마진 제거 */
+  margin: 0;
   text-align: center;
   color: #e74c3c;
   font-size: 16px;
@@ -293,7 +285,6 @@
   word-wrap: break-word;
 }
 
-/* 로딩 애니메이션 */
 @keyframes pulse {
   0%,
   100% {
@@ -304,30 +295,10 @@
   }
 }
 
-h3 {
-  font-size: 24px;
-  margin-bottom: 16px;
-}
-
-h4 {
-  font-size: 18px;
-  margin-bottom: 12px;
-}
-
-ul {
-  padding-left: 20px;
-
-  li {
-    margin-bottom: 8px;
-  }
-}
-
-/* 결과 컨테이너 */
 .result-container {
   width: 100%;
 }
 
-/* 플랫폼 모달 스타일 */
 .platform-modal {
   position: absolute;
   top: 66px;
@@ -340,6 +311,11 @@ ul {
   min-width: 180px;
   overflow: hidden;
   animation: modalFadeIn 0.2s ease-out;
+
+  @include mobile {
+    min-width: 140px;
+    left: 16px;
+  }
 }
 
 @keyframes modalFadeIn {

@@ -4,7 +4,7 @@ import "./ToolSection.scss";
 function ToolSection() {
   return (
     <section className="feature-item2">
-      <div className="item2-title">How to use</div>
+      <div className="item2-title">사용법</div>
       <div className="item2-flex">
         <div className="item2-grid-item item2-border">
           1

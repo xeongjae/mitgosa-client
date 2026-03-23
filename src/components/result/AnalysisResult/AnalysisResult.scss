@@ -1,33 +1,30 @@
-// 부드러운 페이드인 애니메이션
+@use '../../../styles/breakpoints' as *;
+
+// 애니메이션 제거 - 즉시 표시
 .fade-out {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .fade-in-up {
   opacity: 1;
   transform: translateY(0);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-// 더 부드러운 스케일 애니메이션 추가
 .scale-in {
   opacity: 1;
   transform: translateY(0) scale(1);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .scale-out {
-  opacity: 0;
-  transform: translateY(40px) scale(0.95);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
+
 .fade-in-up .chart-container > * {
   animation: none;
 }
 
-// 키프레임 정의
 @keyframes slideInFromTop {
   from {
     opacity: 0;
@@ -53,11 +50,13 @@
 .error-section {
   text-align: center;
   padding: 60px 20px;
+
   h2 {
     font-size: 20px;
     color: #ff6b6b;
     margin-bottom: 20px;
   }
+
   p {
     font-size: 16px;
     margin-bottom: 30px;
@@ -69,15 +68,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 90vh;
-  margin: 40px 0 100px 0;
+  margin: 200px 0;
 }
 
 .analysis-result-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+
+  @include mobile {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .analysis-top {
@@ -89,19 +90,36 @@
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 
+  @include mobile {
+    width: 100%;
+    height: auto;
+  }
+
   h2 {
     height: 50px;
     padding: 14px 0 16px 12px;
     font-size: 14px;
     color: #ffffff;
     border-bottom: 1px solid #1c1c1f;
+
+    @include mobile {
+      padding: 14px 16px 16px 16px;
+    }
   }
+
   .chart-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100%;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 16px 0;
+    }
   }
+
   .chart {
     display: flex;
     justify-content: center;
@@ -110,6 +128,14 @@
     height: 100%;
     gap: 52px;
     border-right: 1px solid #1c1c1f;
+
+    @include mobile {
+      width: 100%;
+      justify-content: flex-start;
+      border-right: none;
+      border-bottom: 1px solid #1c1c1f;
+      padding: 24px 16px;
+    }
 
     svg {
       .chart-segment {
@@ -159,12 +185,19 @@
       }
     }
   }
+
   .summary-content {
     width: 50%;
     padding: 0 24px;
     color: #ffffff;
     font-size: 16px;
     font-weight: 500;
+
+    @include mobile {
+      width: 100%;
+      padding: 16px;
+    }
+
     h3 {
       font-size: 14px;
       margin-bottom: 8px;
@@ -176,19 +209,31 @@
   background-color: #31313c;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
+
+  @include mobile {
+    width: 100%;
+  }
+
   .pros-cons-section {
     display: flex;
     width: 1040px;
-    gap: 4px;
+    gap: 0px;
+
+    @include mobile {
+      width: 100%;
+      flex-direction: column;
+      gap: 12px;
+    }
   }
 
   .pros-section,
   .cons-section {
     width: 100%;
+
     ul {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 4px;
       padding: 0;
     }
 
@@ -215,17 +260,28 @@
 }
 
 .analysis-bottom {
-  margin-top: 40px;
+  margin-top: 4px;
   width: 1040px;
   background-color: #31313c;
   border-radius: 4px;
+
+  @include mobile {
+    width: 100%;
+    margin-top: 20px;
+  }
+
   h2 {
     height: 50px;
     padding: 14px 0 16px 12px;
     font-size: 14px;
     color: #ffffff;
     border-bottom: 1px solid #1c1c1f;
+
+    @include mobile {
+      padding: 14px 16px 16px 16px;
+    }
   }
+
   p {
     font-size: 16px;
     line-height: 1.4;
@@ -238,6 +294,10 @@
 .analysis-result {
   width: 1040px;
   margin: 0 auto;
+
+  @include mobile {
+    width: 100%;
+  }
 
   .result-header {
     display: flex;
@@ -258,25 +318,34 @@
   .analysis-info {
     display: flex;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 4px;
     width: 1040px;
     height: 260px;
-    padding: 0 40px;
+    padding: 0 24px;
     background-color: #31313c;
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
+
+    @include mobile {
+      width: 100%;
+      padding: 24px 24px;
+      margin-bottom: 20px;
+    }
   }
 }
+
 .product-image {
   width: 175px;
   height: 210px;
   border-radius: 8px;
 }
+
 .product-info {
   display: flex;
   flex-direction: column;
   height: 180px;
   margin-left: 40px;
+
   h3 {
     font-size: 16px;
     color: #9e9eb1;
@@ -285,11 +354,13 @@
     margin-left: 6px;
     font-weight: 500;
   }
+
   h2 {
     font-size: 24px;
     color: #ffffff;
     margin-left: 4px;
   }
+
   p {
     font-size: 16px;
     color: #00bba3;
@@ -297,6 +368,7 @@
     margin-left: 10px;
     font-weight: 500;
   }
+
   .buy-btn {
     display: flex;
     flex-direction: column;
@@ -319,11 +391,10 @@
       color: #fff;
     }
   }
+
   .btn-text {
     font-size: 16px;
     font-weight: 700;
     line-height: 1.2;
   }
 }
-
-// 리스트 순차 애니메이션 제거됨
