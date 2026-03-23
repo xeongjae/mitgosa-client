@@ -1,3 +1,5 @@
+@use '../../../styles/breakpoints' as *;
+
 .feature-item2 {
   width: 1040px;
   height: 280px;
@@ -5,6 +7,11 @@
   flex-direction: column;
   border-radius: 4px;
   overflow: hidden;
+
+  @include mobile {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .item2-title {
@@ -21,6 +28,13 @@
   display: flex;
   width: 1040px;
   height: 500px;
+
+  @include mobile {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    height: auto;
+  }
 }
 
 .item2-grid-item {
@@ -29,10 +43,35 @@
   color: #ffffff;
   background-color: #31313c;
   font-size: 20px;
+
+  @include mobile {
+    width: 100%;
+
+    &:nth-child(odd) {
+      border-right: 1px solid #1c1c1f !important;
+    }
+
+    &:nth-child(even) {
+      border-right: none !important;
+    }
+  }
 }
 
 .item2-border {
   border-right: 1px solid #1c1c1f;
+
+  @include mobile {
+    border-right: none;
+    border-bottom: 1px solid #1c1c1f;
+
+    &:nth-child(3) {
+      border-bottom: none;
+    }
+
+    &:nth-child(4) {
+      border-bottom: none;
+    }
+  }
 }
 
 .item2-grid-item-content {
@@ -42,6 +81,7 @@
   justify-content: center;
   align-items: center;
   gap: 16px;
+
   p {
     font-size: 14px;
     font-weight: 500;

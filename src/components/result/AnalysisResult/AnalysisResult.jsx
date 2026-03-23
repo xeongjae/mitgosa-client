@@ -12,46 +12,14 @@ const AnalysisResult = ({ result }) => {
 
   // 순차적 애니메이션 트리거
   useEffect(() => {
-    // 애니메이션 초기화
+    // 애니메이션 초기화 - 모두 true로 즉시 표시
     setVisibleElements({
-      resultSection: false,
-      topMidSection: false,
-      bottomSection1: false,
-      bottomSection2: false,
+      resultSection: true,
+      topMidSection: true,
+      bottomSection1: true,
+      bottomSection2: true,
     });
-
-    const timeouts = [];
-
-    // 각 요소를 더 자연스럽게 순차적으로 나타내기
-    timeouts.push(
-      setTimeout(() => {
-        setVisibleElements((prev) => ({ ...prev, resultSection: true }));
-      }, 300)
-    );
-
-    timeouts.push(
-      setTimeout(() => {
-        setVisibleElements((prev) => ({ ...prev, topMidSection: true }));
-      }, 800)
-    );
-
-    timeouts.push(
-      setTimeout(() => {
-        setVisibleElements((prev) => ({ ...prev, bottomSection1: true }));
-      }, 1300)
-    );
-
-    timeouts.push(
-      setTimeout(() => {
-        setVisibleElements((prev) => ({ ...prev, bottomSection2: true }));
-      }, 1800)
-    );
-
-    // 컴포넌트 언마운트 시 타이머 정리
-    return () => {
-      timeouts.forEach((timeout) => clearTimeout(timeout));
-    };
-  }, [result]); // result가 변경될 때마다 애니메이션 재실행
+  }, [result]);
 
   // 에러 처리
   if (!result || !result.success) {
@@ -110,9 +78,8 @@ const AnalysisResult = ({ result }) => {
   return (
     <div className="analysis-result-layout">
       <div
-        className={`analysis-result ${
-          visibleElements.resultSection ? "scale-in" : "scale-out"
-        }`}
+        className={`analysis-result ${visibleElements.resultSection ? "scale-in" : "scale-out"
+          }`}
       >
         <div className="result-header">
           <h1>{analysisData.total_reviews}개의 리뷰 AI 분석 결과입니다.</h1>
@@ -144,9 +111,8 @@ const AnalysisResult = ({ result }) => {
       </div>
       <div className="analysis-result-container">
         <div
-          className={`analysis-top ${
-            visibleElements.topMidSection ? "fade-in-up" : "fade-out"
-          }`}
+          className={`analysis-top ${visibleElements.topMidSection ? "fade-in-up" : "fade-out"
+            }`}
         >
           <h2>어떤 점이 좋았고, 아쉬웠을까요?</h2>
           <div className="chart-container">
@@ -211,9 +177,8 @@ const AnalysisResult = ({ result }) => {
           </div>
         </div>
         <div
-          className={`analysis-mid ${
-            visibleElements.topMidSection ? "fade-in-up" : "fade-out"
-          }`}
+          className={`analysis-mid ${visibleElements.topMidSection ? "fade-in-up" : "fade-out"
+            }`}
         >
           <div className="pros-cons-section">
             <div className="pros-section">
@@ -240,9 +205,8 @@ const AnalysisResult = ({ result }) => {
                       key={`con-${index}`}
                       className="content-box"
                       style={{
-                        backgroundColor: `rgba(89, 52, 59, ${
-                          1 - index * 0.15
-                        })`,
+                        backgroundColor: `rgba(89, 52, 59, ${1 - index * 0.15
+                          })`,
                       }}
                     >
                       {index + 1}. {con}
@@ -256,9 +220,8 @@ const AnalysisResult = ({ result }) => {
           </div>
         </div>
         <div
-          className={`analysis-bottom ${
-            visibleElements.bottomSection1 ? "fade-in-up" : "fade-out"
-          }`}
+          className={`analysis-bottom ${visibleElements.bottomSection1 ? "fade-in-up" : "fade-out"
+            }`}
         >
           <h2>구매자들이 느낀 사이즈 체감입니다.</h2>
           <div className="recommendation-content">
@@ -266,9 +229,8 @@ const AnalysisResult = ({ result }) => {
           </div>
         </div>
         <div
-          className={`analysis-bottom ${
-            visibleElements.bottomSection2 ? "fade-in-up" : "fade-out"
-          }`}
+          className={`analysis-bottom ${visibleElements.bottomSection2 ? "fade-in-up" : "fade-out"
+            }`}
         >
           <h2>이런 분이라면 만족하실 거예요!</h2>
           <div className="recommendation-content">

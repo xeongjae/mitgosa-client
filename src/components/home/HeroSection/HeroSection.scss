@@ -1,3 +1,5 @@
+@use '../../../styles/breakpoints' as *;
+
 .hero-section {
   width: 1040px;
   height: 100%;
@@ -6,6 +8,10 @@
   align-items: center;
   position: relative;
   margin-top: 80px;
+
+  @include mobile {
+    width: 100%;
+  }
 }
 
 .inner-container {
@@ -15,7 +21,6 @@
   justify-content: center;
   width: 100%;
 }
-
 
 .main-image {
   width: 300px;

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import ResultHeader from "../components/ResultPageSearch/ResultHeader";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
-import AnalysisResult from "../components/AnalysisResult/AnalysisResult";
+import Header from "../components/common/Header/Header";
+import Footer from "../components/common/Footer/Footer";
+import AnalysisResult from "../components/result/AnalysisResult/AnalysisResult";
+import ResultSearchBar from "../components/result/ResultPageSearch/ResultSearchBar";
 import "./Result.scss";
 
 const Result = () => {
@@ -47,7 +47,10 @@ const Result = () => {
   return (
     <div className="summary-container">
       <div className="result-header-layout-container">
-        <ResultHeader />
+        <Header centerContent={<ResultSearchBar />} />
+      </div>
+      <div className="result-mobile-search-bar">
+        <ResultSearchBar />
       </div>
       <div className="summary-content">
         <AnalysisResult result={result} />
